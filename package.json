@@ -1,0 +1,24 @@
+{
+  "name": "petra",
+  "version": "2.0.0",
+  "description": "Bot de Delegación de Estudiantes de la Escuela de Ingeniería Informática de la Universidad de Oviedo",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm i discord.js && npm update && node deploy-commands.js && node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "16.9.1",
+    "npm": "7.24.0"
+  },
+  "author": "Ainiall",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/builders": "^0.6.0",
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "discord-api-types": "^0.23.1",
+    "discord.js": "^13.2.0",
+    "dotenv": "^10.0.0",
+    "fs": "^0.0.1-security"
+  }
+}

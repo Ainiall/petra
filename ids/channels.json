@@ -1,0 +1,44 @@
+{
+  "informacion": {
+    "bienvenidas":"895346142659874877",
+    "informacion":"",
+    "normas":"",
+    "noticias-eii":"",
+    "novedades":"",
+    "autoroles":"895401002897911818"
+  },
+  "servidor": {
+    "general": "",
+    "usar-comandos": "",
+    "musica": "",
+    "sugerencias": "",
+    "dudas": ""
+  },
+  "offtopic": {
+    "off-topic": "",
+    "exploracion": "",
+    "memes": "",
+    "redes-sociales": ""
+  },
+  "videojuegos": {
+    "chat-juegos":"",
+    "chat-lol": "",
+    "chat-among":"",
+    "chat-cgso":"",
+    "chat-rocket": "",
+    "chat-fortnite": "",
+    "chat-valorant": "",
+    "chat-genshin": ""
+  },
+  "DEII-Minecraft":{
+    "acceso": ""
+  },
+  "DEII-Mod.Discord":{
+    "pruebas-comandos":"895306520881934336"
+  },
+  "logs":{
+    "logs-casinos":"",
+    "logs-mensajes":"895332933169213460",
+    "logs-voz":""
+  }
+}
