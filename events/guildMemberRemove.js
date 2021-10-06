@@ -15,9 +15,10 @@ module.exports = {
     // Método auxiliar para enviar un mensaje al canal de log
     log(
       client,
-      member,
+      member.user,
       `**${member.user.username}** se ha ido del servidor`,
-      `FF0000`
+      `FF0000`,
+      `ID: ${member.user.id}`
     );
   },
 };

@@ -6,15 +6,15 @@
  * 
  * @author Ángela López (Ainiall)
  */
- module.exports = (client, member, msg, color)=>{
+ module.exports = (client, user, msg, color, footer)=>{
     const log = client.channels.cache.get(channels.logs["logs-mensajes"]);
 
     const msgEmbed = new Discord.MessageEmbed()
-      .setAuthor(member.user.tag, member.user.avatarURL())
+      .setAuthor(user.tag, user.avatarURL())
       .setDescription(msg)
       .setColor(color)
       .setTimestamp()
-      .setFooter("ID: " + member.user.id);
+      .setFooter(footer);
   
     log.send({ embeds: [msgEmbed] });
  };

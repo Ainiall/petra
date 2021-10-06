@@ -28,9 +28,10 @@ module.exports = {
     // Método auxiliar para enviar un mensaje al canal de log
     log(
       client,
-      member,
+      member.user,
       `**${member.user.username}** se ha unido al servidor`,
-      `00bc29`
+      `00bc29`,
+      `ID: ${member.user.id}`
     );
   },
 };
