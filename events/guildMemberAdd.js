@@ -12,6 +12,8 @@ const Discord = require("discord.js");
 module.exports = {
   name: `guildMemberAdd`,
   execute(client, member) {
+    var channel = client.channels.cache.get(channels.logs["logs-mensajes"]);
+
     console.log(`${member.user.username} se acaba de unir al servidor`);
     const msgEmbed = new Discord.MessageEmbed()
       .setTitle(`BIENVENIDO A EII`)
@@ -27,7 +29,7 @@ module.exports = {
 
     // Método auxiliar para enviar un mensaje al canal de log
     log(
-      client,
+      channel,
       member.user,
       `**${member.user.username}** se ha unido al servidor`,
       `00bc29`,

@@ -10,11 +10,12 @@ const log = require(`../log.js`);
 module.exports = {
   name: `guildMemberRemove`,
   execute(client, member) {
+    var channel = client.channels.cache.get(channels.logs["logs-mensajes"]);
     console.log(`${member.user.username} se ha ido del servidor`);
 
     // Método auxiliar para enviar un mensaje al canal de log
     log(
-      client,
+      channel,
       member.user,
       `**${member.user.username}** se ha ido del servidor`,
       `FF0000`,
