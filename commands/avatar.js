@@ -15,7 +15,7 @@ module.exports = {
     const embed = new Discord.MessageEmbed()
       .setImage(interaction.user.avatarURL({ format: `png`, dynamic: true, size: 1024 }))
       .setFooter(`Avatar de ${interaction.user.tag}`)
-      .setColor(0x01a330);
+      .setColor(`#01a330`);
     return interaction.reply({ embeds: [embed] });
   },
 };

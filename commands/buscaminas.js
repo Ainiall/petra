@@ -89,7 +89,7 @@ module.exports = {
 
     return interaction.reply({
       content: `${final}\n¡No actives las **${bombasfinal}** que hay!`,
-      ephimeral: true,
+      ephemeral: true,
     });
   },
 };
