@@ -1,4 +1,7 @@
-const { SlashCommandBuilder, SlashCommandIntegerOption } = require(`@discordjs/builders`);
+const {
+  SlashCommandBuilder,
+  SlashCommandIntegerOption,
+} = require(`@discordjs/builders`);
 const Discord = require(`discord.js`);
 
 /**

@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require(`@discordjs/builders`);
-const { Permissions, MessageEmbed } = require("discord.js");
+const { Permissions, MessageEmbed } = require(`discord.js`);
 
 /**
  * Muestra información sobre el servidor al usuario que ejecuta la orden

@@ -34,7 +34,7 @@ module.exports = {
     ];
 
     var random = answer[Math.floor(Math.random() * answer.length)];
-    const question = await interaction.options.getString('pregunta');
+    const question = await interaction.options.getString(`pregunta`);
     let embed = new Discord.MessageEmbed()
       .setAuthor(
         interaction.user.username + `#` + interaction.user.discriminator,

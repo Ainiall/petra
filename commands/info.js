@@ -3,7 +3,7 @@ const Discord = require(`discord.js`);
 
 /**
  * Muestra información sobre el usuario actual o el usuario que seleccione
- * con una mención @ 
+ * con una mención @
  *
  * @author Diego Marty (diegomarty00)
  * @author Ángela López (Ainiall)
@@ -54,7 +54,7 @@ module.exports = {
         `Estado: `,
         member.presence === null
           ? `Sin estado` //para evitar problemas si no tiene estado
-          : member.presence.activities[0] !== undefined||null
+          : member.presence.activities[0] !== undefined || null
           ? member.presence.activities[0].name
           : `Sin estado`,
         true
