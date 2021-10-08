@@ -1,10 +1,18 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
+const Discord = require(`discord.js`);
 
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("ping")
-    .setDescription("Replies with Pong!"),
+    .setDescription("Muestra el ping actual"),
   async execute(interaction) {
-    return interaction.reply("Pong!");
+    let ping = Math.floor(interaction.client.ws.ping);
+    let color = ping > 300 ? `#FF0000` : ping > 150 ? `#FFCC00` : `#66ff66`;
+
+    let embed = new Discord.MessageEmbed()
+      .setDescription(":satellite: Pong! **" + ping + "ms.**")
+      .setColor(color);
+
+    return interaction.reply({ embeds: [embed] });
   },
 };

@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require(`@discordjs/builders`);
 const { Permissions, MessageEmbed } = require('discord.js');
-const Discord = require(`discord.js`);
+
 module.exports = {
   data: new SlashCommandBuilder()
     .setName(`server`)
@@ -18,7 +18,7 @@ module.exports = {
       .addField(`Programadores`, `<@148515656927543297><@575724048097476628>`, true)
       .addField(`Ayudante`,`<@218083715501260811>`,true)
       .setColor(0x01a330);
-      
+
     return interaction.reply({ embeds: [embed] }); 
     }
   },
