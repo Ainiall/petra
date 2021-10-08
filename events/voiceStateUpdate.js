@@ -1,16 +1,16 @@
-const channels = require("../ids/channels.json");
+const channels = require(`../ids/channels.json`);
 const log = require(`../log.js`);
 /**
- * Arranca el bot.
- * Muestra un mensaje en el canal de moderadores.
+ * Muestra un mensaje en el canal de logs de voz informando de las distintas acciones
+ * utilizadas por los usuarios
  *
  * @author Ángela López (Ainiall)
  * @author Diego Marty (diegomarty00)
  */
 module.exports = {
-  name: "voiceStateUpdate",
+  name: `voiceStateUpdate`,
   execute(client, oldMember, newMember) {
-    var channel = client.channels.cache.get(channels.logs["logs-voz"]);
+    const channel = client.channels.cache.get(channels.logs[`logs-voz`]);
     let description, color, user;
 
     if (newMember.channelId == null && oldMember.channelId != null) {

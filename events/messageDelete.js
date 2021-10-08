@@ -7,15 +7,15 @@ const log = require(`../log.js`);
  * @author Ángela López (Ainiall)
  */
 module.exports = {
-  name: "messageDelete",
+  name: `messageDelete`,
   execute(client, message) {
-    var channel = client.channels.cache.get(channels.logs["logs-mensajes"]);
+    const channel = client.channels.cache.get(channels.logs[`logs-mensajes`]);
     // Método auxiliar para enviar un mensaje al canal de log
     log(
       channel,
       message.author,
       `Se eliminó en <#${message.channel.id}> el mensaje:\n**${message.content}**`,
-      `770404`,
+      `#770404`,
       `Había sido enviado el : ${message.createdAt.toLocaleString()}`
     );
   },

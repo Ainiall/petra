@@ -4,7 +4,7 @@
  * @author Ángela López (Ainiall)
  */
 module.exports = {
-  name: "interactionCreate",
+  name: `interactionCreate`,
   execute(interaction) {
     console.log(
       `Usuario ${interaction.user.tag} usó el comando ${interaction.commandName} en el canal  #${interaction.channel.name}.`

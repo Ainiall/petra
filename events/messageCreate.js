@@ -1,4 +1,4 @@
-const channels = require("../ids/channels.json");
+const channels = require(`../ids/channels.json`);
 
 /**
  * Muestra un mensaje de debug en el canal de moderadores.
@@ -7,7 +7,7 @@ const channels = require("../ids/channels.json");
  * @author Diego Marty (diegomarty00)
  */
 module.exports = {
-  name: "messageCreate",
+  name: `messageCreate`,
   execute(client, message) {
     console.log(
       `Mensaje enviado por ${message.author.tag} en el canal ${message.channel.name}`

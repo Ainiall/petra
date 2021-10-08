@@ -1,4 +1,4 @@
-const channels = require("../ids/channels.json");
+const channels = require(`../ids/channels.json`);
 
 /**
  * Arranca el bot.
@@ -8,16 +8,16 @@ const channels = require("../ids/channels.json");
  * @author Diego Marty (diegomarty00)
  */
 module.exports = {
-  name: "ready",
+  name: `ready`,
   once: true,
   execute(client) {
     console.log(`¡Preparada! Conectada como ${client.user.tag}`);
 
     const channel = client.channels.cache.get(
-      channels["DEII-Mod.Discord"]["pruebas-comandos"]
+      channels[`DEII-Mod.Discord`][`pruebas-comandos`]
     );
-    channel.send("El bot se reinició").then((m) => {
-      m.react("✅");
+    channel.send(`El bot se reinició`).then((m) => {
+      m.react(`✅`);
     });
   },
 };

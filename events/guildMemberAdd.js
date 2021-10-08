@@ -1,10 +1,10 @@
 const channels = require(`../ids/channels.json`);
 const log = require(`../log.js`);
-const Discord = require("discord.js");
+const Discord = require(`discord.js`);
 
 /**
  * Bienvenida al servidor
- * Se envía un mensaje privado a la persona en cuestión y se notifica su llegada
+ * Se envía un mensaje privado a la persona en cuestión y se notifica su llegada.
  *
  * @author Diego Marty (diegomarty00)
  * @author Ángela López (Ainiall)
@@ -12,7 +12,7 @@ const Discord = require("discord.js");
 module.exports = {
   name: `guildMemberAdd`,
   execute(client, member) {
-    var channel = client.channels.cache.get(channels.logs["logs-mensajes"]);
+    const channel = client.channels.cache.get(channels.logs[`logs-mensajes`]);
 
     console.log(`${member.user.username} se acaba de unir al servidor`);
     const msgEmbed = new Discord.MessageEmbed()
@@ -20,7 +20,7 @@ module.exports = {
       .setDescription(
         `Muchas gracias por unirte a nuestro servidor y formar parte de la comunidad. Te recomendamos que ` +
           `leas las normas del servidor y que te asignes los roles de tus asignaturas en el canal de ` +
-          `<#${channels.informacion["autoroles"]}>. Si quieres salir del curso general, reacciona a la ❌ del ` +
+          `<#${channels.informacion[`autoroles`]}>. Si quieres salir del curso general, reacciona a la ❌ del ` +
           `curso correspondiente.\n\nSi tienes alguna pregunta para Delegación, envíanos un mensaje a través` +
           ` de este chat.\n\n**Disfruta de la comunidad universitaria** ❤ `
       );
@@ -32,7 +32,7 @@ module.exports = {
       channel,
       member.user,
       `**${member.user.username}** se ha unido al servidor`,
-      `00bc29`,
+      `#00bc29`,
       `ID: ${member.user.id}`
     );
   },
