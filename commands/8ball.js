@@ -11,7 +11,7 @@ const Discord = require(`discord.js`);
 module.exports = {
   data: new SlashCommandBuilder()
     .setName(`8ball`)
-    .setDescription(`Haz una pregunta y descubre su respuesta`)
+    .setDescription(`Haz una pregunta y descubre su respuesta (todos podrán ver esta respuesta)`)
     .addStringOption((option) =>
       option
         .setName(`pregunta`)
