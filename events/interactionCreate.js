@@ -5,7 +5,7 @@
  */
 module.exports = {
   name: `interactionCreate`,
-  execute(interaction) {
+  execute(client, interaction) {
     console.log(
       `Usuario ${interaction.user.tag} usó el comando ${interaction.commandName} en el canal  #${interaction.channel.name}.`
     );
@@ -16,7 +16,7 @@ module.exports = {
     if (!command) return;
 
     try {
-      command.execute(interaction, interaction.client);
+      command.execute(interaction, client);
     } catch (error) {
       console.error(error);
       interaction.reply({
