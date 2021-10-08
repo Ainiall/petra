@@ -4,12 +4,12 @@ const msgList = require(`../autoroles.js`).msgList;
 
 /**
  * Manejo de AUTOROLES por parte de los usuarios.
- * Los usuarios pueden autoasignarse roles reaccionando a los mensajes
+ * Los usuarios pueden quitarse roles reaccionando a los mensajes
  *
  * @author Ángela López (Ainiall)
  */
 module.exports = {
-  name: `messageReactionAdd`,
+  name: `messageReactionRemove`,
   async execute(client, reaction, user) {
     const channel = client.channels.cache.get(
       channels.informacion[`autoroles`]
@@ -24,25 +24,18 @@ module.exports = {
       if (reaction.message.id == msg.id) {
         // para cada asignatura/juego etc
         for (let i = 0; i < msgList[num][1].length; i++) {
-          if (
-            reaction.emoji.name == msgList[num][1][i][2] &&
-            msgList[num][1][i][2] != `❌`
-          ) {
+          if (reaction.emoji.name == msgList[num][1][i][2]) {
             let member = await reaction.message.guild.members.fetch(user.id);
-            member.roles.add(msgList[num][2]); // curso
-            member.roles.add(msgList[num][1][i][1]); // asignatura
+            member.roles.remove(msgList[num][1][i][1]);
 
             // Método auxiliar para enviar un mensaje al canal de log
             log(
               logs,
               user,
-              `Se ha añadido el rol **${msgList[num][1][i][0]}**`,
-              `#F7E809`,
+              `Se ha elimando el rol **${msgList[num][1][i][0]}**`,
+              `#F70909`,
               `ID: ${user.id}`
             );
-          } else if (reaction.emoji.name == `❌`) {
-            let member = await reaction.message.guild.members.fetch(user.id);
-            msg.reactions.cache.each((r) => r.users.remove(member.id));
           }
         }
       }

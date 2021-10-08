@@ -82,7 +82,18 @@ const games = [
 ];
 
 // ID del mensaje, la lista con los roles y el rol del curso
-const msgList= 
+const msgList= [
+  [`896037344942120990`, roles1, roles.course1.PRIMERO],
+  [`895969887464341506`, roles2, roles.course2.SEGUNDO],
+  [`895969900915466240`, roles3, roles.course3.TERCERO],
+  [`895969957341454376`, roles4, roles.course4.CUARTO],
+  [`895969980389142549`, rolesOp, roles.courseOpt.OPT],
+  [`895969998730838026`, doctor, roles.doctor],
+  [`895970023733084180`, language, roles.language],
+  [`895970053344866335`, ex, roles.ex],
+  [`895970077827026944`, games, roles.juegos],
+  [`895970088002392065`, casino, roles.casino],
+];
 module.exports = {
   msgList
 };
