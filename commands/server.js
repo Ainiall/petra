@@ -13,7 +13,6 @@ module.exports = {
     .setName(`server`)
     .setDescription(`Muestra información sobre el servidor (solo tú podrás verla)`),
   async execute(interaction) {
-    console.log(interaction.guild.memberCount);
     if (interaction.member.permissions.has(Permissions.FLAGS.MANAGE_MESSAGES)) {
       const embed = new MessageEmbed()
         .setThumbnail(interaction.guild.iconURL({ dynamic: true }))

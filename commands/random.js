@@ -1,7 +1,4 @@
-const {
-  SlashCommandBuilder,
-  SlashCommandIntegerOption,
-} = require(`@discordjs/builders`);
+const { SlashCommandBuilder } = require(`@discordjs/builders`);
 
 /**
  * Muestra un número aleatorio con rango [0-n] que solo puede ver el usuario

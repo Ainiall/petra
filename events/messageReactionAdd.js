@@ -1,5 +1,5 @@
 const channels = require(`../ids/channels.json`);
-const log = require(`../log.js`);
+const {log} = require(`../logs.js`);
 const msgList = require(`../autoroles.js`).msgList;
 
 /**
@@ -10,11 +10,10 @@ const msgList = require(`../autoroles.js`).msgList;
  */
 module.exports = {
   name: `messageReactionAdd`,
-  async execute(client, reaction, user) {
-    const channel = client.channels.cache.get(
+  async execute(reaction, user) {
+    const channel = user.client.channels.cache.get(
       channels.informacion[`autoroles`]
     );
-    const logs = client.channels.cache.get(channels.logs[`logs-mensajes`]);
 
     // para cada mensaje del chat autoroles
     for (let num = 0; num < msgList.length; num++) {
@@ -34,11 +33,10 @@ module.exports = {
 
             // Método auxiliar para enviar un mensaje al canal de log
             log(
-              logs,
               user,
-              `Se ha añadido el rol **${msgList[num][1][i][0]}**`,
+              `<@${user.id}> se ha añadido el rol **${msgList[num][1][i][0]}**`,
               `#F7E809`,
-              `ID: ${user.id}`
+              `ID del rol: ${msgList[num][1][i][1]}`
             );
           } else if (reaction.emoji.name == `❌`) {
             let member = await reaction.message.guild.members.fetch(user.id);

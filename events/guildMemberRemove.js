@@ -1,5 +1,5 @@
 const channels = require(`../ids/channels.json`);
-const log = require(`../log.js`);
+const { deleteLog } = require(`../logs.js`);
 
 /**
  * Muestra un mensaje en el log cuando un miembro abandona el servidor.
@@ -9,17 +9,9 @@ const log = require(`../log.js`);
  */
 module.exports = {
   name: `guildMemberRemove`,
-  execute(client, member) {
-    const channel = client.channels.cache.get(channels.logs[`logs-mensajes`]);
-    console.log(`${member.user.username} se ha ido del servidor`);
+  execute(member) {
 
     // Método auxiliar para enviar un mensaje al canal de log
-    log(
-      channel,
-      member.user,
-      `**${member.user.username}** se ha ido del servidor`,
-      `#FF0000`,
-      `ID: ${member.user.id}`
-    );
+    deleteLog(member.user, `<@${member.id}> se ha ido del servidor `);
   },
 };

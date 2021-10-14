@@ -1,5 +1,5 @@
 const channels = require(`../ids/channels.json`);
-const log = require(`../log.js`);
+const { log, messageLog } = require(`../logs.js`);
 /**
  * Muestra un mensaje de debug en el canal de moderadores.
  *
@@ -8,9 +8,8 @@ const log = require(`../log.js`);
  */
 module.exports = {
   name: `messageCreate`,
-  execute(client, message) {
-    const channel = client.channels.cache.get(channels.logs[`logs-mensajes`]);
-    const pm = client.channels.cache.get(
+  execute(message) {
+    const pm = message.client.channels.cache.get(
       channels["Delegacion-Estudiantes"]["dudas-miembros"]
     );
 
@@ -19,20 +18,20 @@ module.exports = {
     if (message.channel.type === `DM`) {
       if (message.author.bot) return; // ignorar mensajes
       log(
-        pm,
         message.author,
         `${message.author.username}ha dicho lo siguiente:\n▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
-          ${message.content}`,
+            ${message.content}`,
         `#09AAF7`,
-        `ID: ${message.author.id}`
+        `ID del mensaje: ${message.id}`,
+        pm
       );
     } else if (!message.author.bot) {
+      if (message.channel.id === channels.informacion.bienvenidas) return;
       log(
-        channel,
         message.author,
-        `Envió en <#${message.channel.id}>: \n**${message.content}**`,
+        `<@${message.author.id}> envió en <#${message.channel.id}>: \n**${message.content}**`,
         `#09AAF7`,
-        `ID: ${message.author.id}`
+        `ID del mensaje: ${message.id}`
       );
     }
     // TODO handle diff types of msg

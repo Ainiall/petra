@@ -1,5 +1,5 @@
 const channels = require(`../ids/channels.json`);
-const log = require(`../log.js`);
+const { deleteLog } = require(`../logs.js`);
 const msgList = require(`../autoroles.js`).msgList;
 
 /**
@@ -10,11 +10,10 @@ const msgList = require(`../autoroles.js`).msgList;
  */
 module.exports = {
   name: `messageReactionRemove`,
-  async execute(client, reaction, user) {
-    const channel = client.channels.cache.get(
+  async execute(reaction, user) {
+    const channel = user.client.channels.cache.get(
       channels.informacion[`autoroles`]
     );
-    const logs = client.channels.cache.get(channels.logs[`logs-mensajes`]);
 
     // para cada mensaje del chat autoroles
     for (let num = 0; num < msgList.length; num++) {
@@ -29,12 +28,10 @@ module.exports = {
             member.roles.remove(msgList[num][1][i][1]);
 
             // Método auxiliar para enviar un mensaje al canal de log
-            log(
-              logs,
+            deleteLog(
               user,
-              `Se ha elimando el rol **${msgList[num][1][i][0]}**`,
-              `#F70909`,
-              `ID: ${user.id}`
+              `<@${user.id}> se ha elimando el rol **${msgList[num][1][i][0]}**`,
+              `ID del rol: ${msgList[num][1][i][1]}`
             );
           }
         }

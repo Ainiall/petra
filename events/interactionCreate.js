@@ -5,7 +5,7 @@
  */
 module.exports = {
   name: `interactionCreate`,
-  execute(client, interaction) {
+  execute(interaction) {
 
     if (!interaction.isCommand()) return;
 
@@ -14,7 +14,7 @@ module.exports = {
     if (!command) return;
 
     try {
-      command.execute(interaction, client);
+      command.execute(interaction, interaction.client);
     } catch (error) {
       console.error(error);
       interaction.reply({

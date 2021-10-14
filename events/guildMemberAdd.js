@@ -1,5 +1,5 @@
 const channels = require(`../ids/channels.json`);
-const log = require(`../log.js`);
+const { simpleLog } = require(`../logs.js`);
 const Discord = require(`discord.js`);
 
 /**
@@ -11,16 +11,16 @@ const Discord = require(`discord.js`);
  */
 module.exports = {
   name: `guildMemberAdd`,
-  execute(client, member) {
-    const channel = client.channels.cache.get(channels.logs[`logs-mensajes`]);
+  execute(member) {
 
-    console.log(`${member.user.username} se acaba de unir al servidor`);
     const msgEmbed = new Discord.MessageEmbed()
       .setTitle(`BIENVENIDO A EII`)
       .setDescription(
         `Muchas gracias por unirte a nuestro servidor y formar parte de la comunidad. Te recomendamos que ` +
           `leas las normas del servidor y que te asignes los roles de tus asignaturas en el canal de ` +
-          `<#${channels.informacion[`autoroles`]}>. Si quieres salir del curso general, reacciona a la ❌ del ` +
+          `<#${
+            channels.informacion[`autoroles`]
+          }>. Si quieres salir del curso general, reacciona a la ❌ del ` +
           `curso correspondiente.\n\nSi tienes alguna pregunta para Delegación, envíanos un mensaje a través` +
           ` de este chat.\n\n**Disfruta de la comunidad universitaria** ❤ `
       );
@@ -28,12 +28,7 @@ module.exports = {
     member.send({ embeds: [msgEmbed] });
 
     // Método auxiliar para enviar un mensaje al canal de log
-    log(
-      channel,
-      member.user,
-      `**${member.user.username}** se ha unido al servidor`,
-      `#00bc29`,
-      `ID: ${member.user.id}`
-    );
+
+    simpleLog(member.user, ` se ha unido al servidor`, `#00bc29`);
   },
 };
