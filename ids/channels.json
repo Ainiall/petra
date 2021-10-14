@@ -33,6 +33,11 @@
   "DEII-Minecraft":{
     "acceso": ""
   },
+  "Delegacion-Estudiantes":{
+    "chat-delegacion":"",
+    "pruebas-comandos":"",
+    "dudas-miembros": "898291954520035328"
+  },
   "DEII-Mod.Discord":{
     "pruebas-comandos":"895306520881934336"
   },

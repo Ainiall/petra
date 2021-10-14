@@ -5,6 +5,7 @@ require("dotenv").config();
 
 // Nueva instancia del cliente con los intents necesarios
 const client = new Client({
+  partials: ["CHANNEL"], // para poder tener DM
   intents: [
     Intents.FLAGS.GUILDS,
     Intents.FLAGS.GUILD_MEMBERS,
