@@ -8,13 +8,26 @@ const log = require(`../log.js`);
  */
 module.exports = {
   name: `messageDelete`,
-  execute(client, message) {
+  async execute(client, message) {
     const channel = client.channels.cache.get(channels.logs[`logs-mensajes`]);
+    // comprobar si el mensaje fue borrado por un admin
+    if (!message.guild) return;
+    const fetchedLogs = await message.guild.fetchAuditLogs({
+      limit: 1,
+      type: "MESSAGE_DELETE",
+    });
+    const deletionLog = fetchedLogs.entries.last();
+
+    const { executor, target } = deletionLog;
+    // la persona que ha borrado el mensaje
+    let exec =
+      executor.id === message.author.id ? message.author.id : executor.id;
+
     // Método auxiliar para enviar un mensaje al canal de log
-    log(
+    await log(
       channel,
       message.author,
-      `Se eliminó en <#${message.channel.id}> el mensaje:\n**${message.content}**`,
+      `<@${exec}> eliminó en <#${message.channel.id}> el mensaje:\n**${message.content}**`,
       `#770404`,
       `Había sido enviado el : ${message.createdAt.toLocaleString()}`
     );

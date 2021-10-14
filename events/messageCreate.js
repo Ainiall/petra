@@ -9,7 +9,6 @@ const log = require(`../log.js`);
 module.exports = {
   name: `messageCreate`,
   execute(client, message) {
-    console.log(message.content);
     const channel = client.channels.cache.get(channels.logs[`logs-mensajes`]);
     const pm = client.channels.cache.get(
       channels["Delegacion-Estudiantes"]["dudas-miembros"]

@@ -6,9 +6,7 @@
 module.exports = {
   name: `interactionCreate`,
   execute(client, interaction) {
-    console.log(
-      `Usuario ${interaction.user.tag} usó el comando ${interaction.commandName} en el canal  #${interaction.channel.name}.`
-    );
+
     if (!interaction.isCommand()) return;
 
     const command = interaction.client.commands.get(interaction.commandName);
